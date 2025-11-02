@@ -1,3 +1,5 @@
+import { Database } from "@/types/database.types";
+import { SupabaseDBClient } from "@/types/helper.types";
 import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
 
@@ -6,10 +8,10 @@ import { cookies } from "next/headers";
  * global variable. Always create a new client within each function when using
  * it.
  */
-export async function createClient() {
+export async function createClient(): Promise<SupabaseDBClient> {
   const cookieStore = await cookies();
 
-  return createServerClient(
+  return createServerClient<Database>(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,
     {
