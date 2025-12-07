@@ -39,6 +39,132 @@ export type Database = {
   }
   public: {
     Tables: {
+      generated_images: {
+        Row: {
+          aspect_ratio: Database["public"]["Enums"]["aspect_ratio_enum"]
+          content_type: string | null
+          created_at: string
+          description: string | null
+          error_message: string | null
+          fal_image_url: string | null
+          fal_request_id: string | null
+          file_size: number | null
+          height: number | null
+          id: string
+          num_images: number
+          output_format: Database["public"]["Enums"]["output_format_enum"]
+          prompt: string
+          status: Database["public"]["Enums"]["generation_status_enum"]
+          storage_path: string | null
+          updated_at: string
+          user_id: string
+          width: number | null
+        }
+        Insert: {
+          aspect_ratio?: Database["public"]["Enums"]["aspect_ratio_enum"]
+          content_type?: string | null
+          created_at?: string
+          description?: string | null
+          error_message?: string | null
+          fal_image_url?: string | null
+          fal_request_id?: string | null
+          file_size?: number | null
+          height?: number | null
+          id?: string
+          num_images?: number
+          output_format?: Database["public"]["Enums"]["output_format_enum"]
+          prompt: string
+          status?: Database["public"]["Enums"]["generation_status_enum"]
+          storage_path?: string | null
+          updated_at?: string
+          user_id: string
+          width?: number | null
+        }
+        Update: {
+          aspect_ratio?: Database["public"]["Enums"]["aspect_ratio_enum"]
+          content_type?: string | null
+          created_at?: string
+          description?: string | null
+          error_message?: string | null
+          fal_image_url?: string | null
+          fal_request_id?: string | null
+          file_size?: number | null
+          height?: number | null
+          id?: string
+          num_images?: number
+          output_format?: Database["public"]["Enums"]["output_format_enum"]
+          prompt?: string
+          status?: Database["public"]["Enums"]["generation_status_enum"]
+          storage_path?: string | null
+          updated_at?: string
+          user_id?: string
+          width?: number | null
+        }
+        Relationships: []
+      }
+      generated_images_test: {
+        Row: {
+          aspect_ratio: Database["public"]["Enums"]["aspect_ratio_enum_test"]
+          content_type: string | null
+          created_at: string
+          description: string | null
+          error_message: string | null
+          fal_image_url: string | null
+          fal_request_id: string | null
+          file_size: number | null
+          height: number | null
+          id: string
+          num_images: number
+          output_format: Database["public"]["Enums"]["output_format_enum_test"]
+          prompt: string
+          status: Database["public"]["Enums"]["generation_status_enum_test"]
+          storage_path: string | null
+          updated_at: string
+          user_id: string
+          width: number | null
+        }
+        Insert: {
+          aspect_ratio?: Database["public"]["Enums"]["aspect_ratio_enum_test"]
+          content_type?: string | null
+          created_at?: string
+          description?: string | null
+          error_message?: string | null
+          fal_image_url?: string | null
+          fal_request_id?: string | null
+          file_size?: number | null
+          height?: number | null
+          id?: string
+          num_images?: number
+          output_format?: Database["public"]["Enums"]["output_format_enum_test"]
+          prompt: string
+          status?: Database["public"]["Enums"]["generation_status_enum_test"]
+          storage_path?: string | null
+          updated_at?: string
+          user_id: string
+          width?: number | null
+        }
+        Update: {
+          aspect_ratio?: Database["public"]["Enums"]["aspect_ratio_enum_test"]
+          content_type?: string | null
+          created_at?: string
+          description?: string | null
+          error_message?: string | null
+          fal_image_url?: string | null
+          fal_request_id?: string | null
+          file_size?: number | null
+          height?: number | null
+          id?: string
+          num_images?: number
+          output_format?: Database["public"]["Enums"]["output_format_enum_test"]
+          prompt?: string
+          status?: Database["public"]["Enums"]["generation_status_enum_test"]
+          storage_path?: string | null
+          updated_at?: string
+          user_id?: string
+          width?: number | null
+        }
+        Relationships: []
+      }
       notes: {
         Row: {
           content: string | null
@@ -104,7 +230,36 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      aspect_ratio_enum:
+        | "21:9"
+        | "16:9"
+        | "3:2"
+        | "4:3"
+        | "5:4"
+        | "1:1"
+        | "4:5"
+        | "3:4"
+        | "2:3"
+        | "9:16"
+      aspect_ratio_enum_test:
+        | "21:9"
+        | "16:9"
+        | "3:2"
+        | "4:3"
+        | "5:4"
+        | "1:1"
+        | "4:5"
+        | "3:4"
+        | "2:3"
+        | "9:16"
+      generation_status_enum: "pending" | "processing" | "completed" | "failed"
+      generation_status_enum_test:
+        | "pending"
+        | "processing"
+        | "completed"
+        | "failed"
+      output_format_enum: "jpeg" | "png" | "webp"
+      output_format_enum_test: "jpeg" | "png" | "webp"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -234,6 +389,40 @@ export const Constants = {
     Enums: {},
   },
   public: {
-    Enums: {},
+    Enums: {
+      aspect_ratio_enum: [
+        "21:9",
+        "16:9",
+        "3:2",
+        "4:3",
+        "5:4",
+        "1:1",
+        "4:5",
+        "3:4",
+        "2:3",
+        "9:16",
+      ],
+      aspect_ratio_enum_test: [
+        "21:9",
+        "16:9",
+        "3:2",
+        "4:3",
+        "5:4",
+        "1:1",
+        "4:5",
+        "3:4",
+        "2:3",
+        "9:16",
+      ],
+      generation_status_enum: ["pending", "processing", "completed", "failed"],
+      generation_status_enum_test: [
+        "pending",
+        "processing",
+        "completed",
+        "failed",
+      ],
+      output_format_enum: ["jpeg", "png", "webp"],
+      output_format_enum_test: ["jpeg", "png", "webp"],
+    },
   },
 } as const
